@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: special-config-map
+  namespace: default
+  labels:
+    app: service-a
+
+data:
+  CONFIG_VALUE: "correct_value"
+  ANOTHER_SETTING: "enabled"
