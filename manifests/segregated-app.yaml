@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app-segregated-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app-segregated
+  template:
+    metadata:
+      labels:
+        app: my-app-segregated
+    spec:
+      containers:
+      - name: my-container
+        image: busybox
+        command: ["sleep", "3600"]
+        resources:
+          requests:
+            memory: "32Mi"
+            cpu: "100m"
+          limits:
+            memory: "64Mi"
+            cpu: "200m"
